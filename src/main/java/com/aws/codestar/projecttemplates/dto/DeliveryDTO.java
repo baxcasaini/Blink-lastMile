@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.DTO;
+package com.aws.codestar.projecttemplates.dto;
 
 import com.aws.codestar.projecttemplates.model.Customer;
 import com.aws.codestar.projecttemplates.model.Parcel;

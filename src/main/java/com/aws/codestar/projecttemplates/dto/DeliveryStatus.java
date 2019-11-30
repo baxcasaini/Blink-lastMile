@@ -1,4 +1,4 @@
-package com.aws.codestar.projecttemplates.DTO;
+package com.aws.codestar.projecttemplates.dto;
 
 public enum DeliveryStatus {
 created,

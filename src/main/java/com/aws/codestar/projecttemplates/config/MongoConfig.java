@@ -3,14 +3,9 @@ package com.aws.codestar.projecttemplates.config;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 
-@Slf4j
 @Configuration
 public class MongoConfig extends AbstractMongoConfiguration {
 
@@ -29,7 +24,7 @@ public class MongoConfig extends AbstractMongoConfiguration {
             return mc;
 
         } catch (Exception ex) {
-            log.error(ex.getMessage());
+            ;
         }
         return null;
 	}
