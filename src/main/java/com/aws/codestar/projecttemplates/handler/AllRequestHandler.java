@@ -17,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class AllRequestHandler implements RequestHandler<Object, Object> {
 
-    @Autowired
     DeliveryController deliveryController;
 
     public Object handleRequest(final Object input, final Context context) {
@@ -28,6 +27,7 @@ public class AllRequestHandler implements RequestHandler<Object, Object> {
         headers.put("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
         headers.put("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
 
+        deliveryController = new DeliveryController();
         Delivery delivery = new Delivery();
         delivery.setId("3");
         deliveryController.create(delivery);  // test

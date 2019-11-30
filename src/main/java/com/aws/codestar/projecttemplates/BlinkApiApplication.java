@@ -22,12 +22,13 @@ public class BlinkApiApplication
 	public void run(String... args) throws Exception {
 		Thread.sleep(5000);
 
-		try {
-			Delivery delivery = new Delivery();
-			delivery.setId("3");
-			deliveryController.create(delivery);
-		}catch (Exception e){
-			;
-		}
+//		try {
+//			Delivery delivery = new Delivery();
+//			delivery.setId("3");
+//			deliveryController.create(delivery);
+//		}catch (Exception e){
+//			;
+//		}
+
 	}
 }
