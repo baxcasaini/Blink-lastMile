@@ -17,7 +17,6 @@ public class DeliveryController {
 
     @GetMapping
     public List<Delivery> getAll() {
-    	
         return getListDeliveryFromDTO(deliveryRepository.findAll());
     }
 
@@ -28,6 +27,15 @@ public class DeliveryController {
 
     @PostMapping
     public Delivery create(@RequestBody Delivery delivery) {
+        return getDeliveryFromDTO(deliveryRepository.insert(getDTOfromDelivery(delivery)));
+    }
+
+    @PostMapping("/{id}")
+    public Delivery createSingle(@PathVariable("id") String id) {
+        DeliveryController deliveryController = new DeliveryController();
+        Delivery delivery = new Delivery();
+        delivery.setId(id);
+        deliveryController.create(delivery);
         return getDeliveryFromDTO(deliveryRepository.insert(getDTOfromDelivery(delivery)));
     }
 
@@ -48,8 +56,6 @@ public class DeliveryController {
         
     	return getDeliveryFromDTO(deliveryRepository.save(deliveryUp));
     }
-    
-    
     
     private Delivery getDeliveryFromDTO(DeliveryDTO dto) {
     	Delivery del = new Delivery();
