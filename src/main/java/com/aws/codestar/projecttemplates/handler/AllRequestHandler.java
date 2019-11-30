@@ -17,8 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class AllRequestHandler implements RequestHandler<Object, Object> {
 
-    DeliveryController deliveryController;
-
     public Object handleRequest(final Object input, final Context context) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
@@ -26,20 +24,6 @@ public class AllRequestHandler implements RequestHandler<Object, Object> {
         headers.put("Access-Control-Allow-Credentials", "true");
         headers.put("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
         headers.put("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
-
-        Exception ex = null;
-        try {
-            deliveryController = new DeliveryController();
-            Delivery delivery = new Delivery();
-            delivery.setId("3");
-            deliveryController.create(delivery);  // test
-        }catch(Exception e){
-            ex = e;
-        }
-
-        if ( ex != null ){
-            return  new GatewayResponse(new JSONObject().put("Output", ex.getStackTrace()).toString(), headers, 500);
-        }
 
         return new GatewayResponse(new JSONObject().put("Output", "Blink Service is running").toString(), headers, 200);
     }
